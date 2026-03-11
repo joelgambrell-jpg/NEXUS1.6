@@ -1,4 +1,42 @@
-/* NEXUS Session Banner */
+/* ========================================================= */
+/* NEXUS GLOBAL BACKGROUND THEME — HYPERCORE SERVER RACKS    */
+/* Applies to ALL pages that load this stylesheet            */
+/* ========================================================= */
+
+html,body{
+  margin:0;
+  min-height:100%;
+  background:#050505;
+}
+
+/* Server rack background */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url("transformer.jpg") center/cover no-repeat;
+  filter: blur(3px);
+  transform: scale(1.03);
+  opacity:0.92;
+  z-index:-2;
+  pointer-events:none;
+}
+
+/* Dark overlay so UI remains readable */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.30);
+  z-index:-1;
+  pointer-events:none;
+}
+
+
+/* ========================================================= */
+/* NEXUS SESSION BANNER                                      */
+/* ========================================================= */
+
 #nxSessionBanner{
   width:100%;
   max-width:1100px;
@@ -40,8 +78,9 @@
   font-weight: 800;
 }
 
+
 /* ============================= */
-/* NEW — Language Toggle Support */
+/* Language Toggle               */
 /* ============================= */
 
 #nxSessionBanner .nx-right{
@@ -67,6 +106,7 @@
   background: rgba(255,255,255,0.16);
 }
 
+
 /* ============================= */
 
 @media print{
@@ -76,8 +116,9 @@
 }
 
 
-/* === NEXUS STANDARD THEME v1.4 === */
-/* Scope: only within .nexus-page to avoid disturbing legacy page-specific CSS. */
+/* ========================================================= */
+/* NEXUS STANDARD THEME                                      */
+/* ========================================================= */
 
 :root{
   --nx-font: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
@@ -92,9 +133,10 @@
 }
 
 
-/* Page frame */
+/* Page wrapper */
 
 .nexus-page{
+  position:relative;
   min-height:100vh;
   font-family: var(--nx-font);
   color: var(--nx-text);
@@ -103,34 +145,9 @@
 }
 
 
-/* Background image (optional) */
-
-.nexus-page.nx-bg,
-body.nx-bg .nexus-page{
-  position: relative;
-}
-
-.nexus-page.nx-bg::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  background: url("transformer.jpg") center/cover no-repeat;
-  filter: blur(6px);
-  transform: scale(1.04);
-  opacity: 0.95;
-  z-index: -2;
-}
-
-.nexus-page.nx-bg::after{
-  content:"";
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.34);
-  z-index: -1;
-}
-
-
-/* Standard content container */
+/* ========================================================= */
+/* CONTENT CONTAINER                                         */
+/* ========================================================= */
 
 .nexus-sheet{
   width: min(var(--nx-maxw), calc(100% - 24px));
@@ -143,7 +160,9 @@ body.nx-bg .nexus-page{
 }
 
 
-/* Forms */
+/* ========================================================= */
+/* FORMS                                                     */
+/* ========================================================= */
 
 .nexus-page input,
 .nexus-page select,
@@ -175,7 +194,9 @@ body.nx-bg .nexus-page{
 }
 
 
-/* Buttons */
+/* ========================================================= */
+/* BUTTONS                                                   */
+/* ========================================================= */
 
 .nexus-page .nx-btn,
 .nexus-page button{
@@ -204,7 +225,9 @@ body.nx-bg .nexus-page{
 }
 
 
-/* Tables */
+/* ========================================================= */
+/* TABLES                                                    */
+/* ========================================================= */
 
 .nexus-page table{
   border-collapse: collapse;
@@ -223,7 +246,9 @@ body.nx-bg .nexus-page{
 }
 
 
-/* Utility */
+/* ========================================================= */
+/* UTILITIES                                                 */
+/* ========================================================= */
 
 .nx-maxw{
   width: min(var(--nx-maxw), calc(100% - 24px));
@@ -236,7 +261,9 @@ body.nx-bg .nexus-page{
 }
 
 
-/* === Torque Photo Preview: show FULL image (no crop) + larger box === */
+/* ========================================================= */
+/* TORQUE PHOTO PREVIEW                                      */
+/* ========================================================= */
 
 #torquePhotoPreview,
 #nxTorquePhotoPreview,
@@ -263,97 +290,10 @@ body.nx-bg .nexus-page{
 .torquePhotoPreview img{
   display: block;
   width: 100%;
-  height: 420px;
-  max-height: 60vh;
+  height: 520px;
+  max-height: 70vh;
   object-fit: contain;
   object-position: center;
-  background: rgba(0,0,0,0.06);
   border-radius: 12px;
-}
-
-
-/* === FORCE FULL-VIEW IMAGE PREVIEWS (NO CROP) — DROP-IN OVERRIDE === */
-
-#torquePhotoPreview img,
-#nxTorquePhotoPreview img,
-#nxTorquePhoto img,
-#torque_photo img,
-#torque-photo img,
-#torquePhoto img,
-#torquePhotoBox img,
-#torquePhotoWrap img,
-#torquePhotoContainer img,
-#nxTorquePhotoBox img,
-#nxTorquePhotoWrap img,
-#nxTorquePhotoContainer img,
-.torque-photo img,
-.torquePhoto img,
-.torque-photo-preview img,
-.torquePhotoPreview img,
-.photo-box img,
-.image-box img,
-.preview img,
-.upload-preview img,
-.uploadPreview img,
-.nx-photo img,
-.nx-image img,
-.nx-media img,
-.nx-upload img,
-.nx-preview img{
-  display:block !important;
-  width:100% !important;
-  height:520px !important;
-  max-height:70vh !important;
-  object-fit:contain !important;
-  object-position:center !important;
-  border-radius:12px !important;
-  background: rgba(0,0,0,0.06) !important;
-}
-
-#torquePhotoPreview,
-#nxTorquePhotoPreview,
-#nxTorquePhoto,
-#torque_photo,
-#torque-photo,
-#torquePhoto,
-#torquePhotoBox,
-#torquePhotoWrap,
-#torquePhotoContainer,
-#nxTorquePhotoBox,
-#nxTorquePhotoWrap,
-#nxTorquePhotoContainer,
-.torque-photo,
-.torquePhoto,
-.torque-photo-preview,
-.torquePhotoPreview,
-.photo-box,
-.image-box,
-.preview,
-.upload-preview,
-.uploadPreview,
-.nx-photo,
-.nx-image,
-.nx-media,
-.nx-upload,
-.nx-preview{
-  overflow: visible !important;
-}
-
-#torquePhotoPreview,
-#nxTorquePhotoPreview,
-#nxTorquePhoto,
-#torque_photo,
-#torque-photo,
-#torquePhoto,
-#torquePhotoBox,
-#torquePhotoWrap,
-#torquePhotoContainer,
-.torque-photo,
-.torquePhoto,
-.torque-photo-preview,
-.torquePhotoPreview{
-  background-size: contain !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  min-height: 520px !important;
+  background: rgba(0,0,0,0.06);
 }
